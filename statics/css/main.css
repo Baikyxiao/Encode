@@ -1,0 +1,231 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #fff7ff;
+}
+
+.nav_1 {
+    /*.容器整体 宽 高 的设定  */
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    /*固定一级菜单的位置*/
+}
+
+.Top-li {
+    /*去掉一级菜单的点，横向浮动*/
+    margin: -1px;
+    border: 1px solid #424242;
+    list-style: none;
+    
+    
+    background-color: #fafafa;
+}
+
+.Top-li a {
+    color: #1976d2;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /*分别为 上→左右→下 边框设置*/
+}
+
+.Top-ul {
+    border-width: 1px;
+    border-style: solid solid solid;
+    border-color: #424242;
+}
+
+.Top-li a:link,
+.Top-li a:visited,
+.Top-li a:hover,
+.Top-li a:active {
+    /*单个菜单的具体属性*/
+    
+    margin-left: 12px;
+    text-align: left;
+    text-decoration: none;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #fff7ff;
+}
+
+.nav_1 ul li ul {
+    /* 二级菜单整体设定   */
+    display: none;
+    /* 隐藏二级菜单列表*/
+    position: absolute;
+    /*二级菜单的位置固定*/
+}
+
+.nav_1 ul li:hover ul {
+    display: block;
+    /*二级菜单  将显示为块级元素*/
+    width: 100%;
+    /*消除二级菜单的滚动条，因为继承了父级的宽度*/
+}
+
+.Scd-li {
+    float: none;
+    /*消除二级菜单的浮动*/
+    background-color: #d9edf7;
+    width: 100%;
+}
+
+
+
+.Scd-li a:link,
+.Scd-li a:visited,
+.Scd-li a:hover,
+.Scd-li a:active {
+    float: none;
+
+    color: #3a87ad;
+    font-family: linkMacSystemFont;
+    /*消除二级菜单的浮动*/
+    background-color: #bce8f1;
+    width: 100%;
+}
+
+.title {
+    padding: 8px;
+    padding-left: 12px;
+    background-color: #CCCCCC;
+    width: 100%;
+    height: 25px;
+    border-bottom: 1px solid var(--primary-border-colour);
+    font-weight: bold;
+    font-size: 18px;
+    color: #424242;
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+element.style {
+    overflow: auto;
+}
+.input-div{
+    height: 40%;
+    width: 100%;
+}
+.output-div{
+    height: 60%;
+    width: 100%;
+}
+.fun{
+    cursor: pointer;
+    color: #3a87ad;
+}
+.fun:hover{
+    background-color: #00aaff;
+}
+
+#input-text{
+    position: relative;
+    width: 97%;
+    height: 78.5%;
+    padding: 0px;
+    border: 0px none;
+    resize: none;
+    background-color: transparent;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+#input-center-text{
+    position: relative;
+    width: 94%;
+    height: 94%;
+    padding: 3%;
+    font-size: 20px;
+    border: 0px none;
+    resize: none;
+    background-color: transparent;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+#btn-public-key{
+    
+    width: 50%;
+    height: 45px;
+    margin-left:15% ;   
+    border-radius: 100px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    color: #000;
+    
+    background: #5cb85c;
+}
+
+#btn-public-key:hover{
+    width: 50%;
+    height: 45px;
+    margin-left:15% ;   
+    border-radius: 100px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    color: #000;
+    background: #8be38b;
+}
+
+#btn-public-key:active{
+    width: 50%;
+    height: 45px;
+    margin-left:15% ;   
+    border-radius: 100px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    color: #000;
+    background: #c2eac2;
+}
+
+
+#auto-bake-label {
+    display: inline-block;
+    width: 100px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    color: var(--primary-font-colour);
+    font-size: 14px;
+    cursor: pointer;
+}
+#auto-bake-label .check {
+    border-color: var(--input-highlight-colour);
+    color: var(--input-highlight-colour);
+}
+.checkbox label .checkbox-decorator, label.checkbox-inline .checkbox-decorator {
+    position: absolute;
+    left: 0px;
+    padding: 0.7em;
+    margin: -0.7em;
+    line-height: 0.7;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 100%;
+}
+
+#output-text, #output-html {
+    position: relative;
+    width: 97%;
+    height: 86%;
+    padding: 0px;
+    border: 0px none;
+    resize: none;
+    background-color: transparent;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+h1 {
+    background: #55AA77;
+    /*背景颜色红色*/
+    font-size: 30px;
+    /*字体大小18px*/
+    color: #424242;
+    /*字体颜色黑色*/
+}
