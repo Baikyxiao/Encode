@@ -8,7 +8,7 @@ from itertools import permutations
 import bcrypt
 from Crypto.Hash import MD2
 import json
-
+import time, datetime
 
 
 letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
@@ -149,6 +149,29 @@ def solve(ff, ip, key=None):
         return decode_url(ip)
     elif ff == 'To_SHA256':
         return get_sha256_data(ip)
+    elif ff == "To_Binary":
+        return str2bitnumarray(ip)
+    elif ff == "From_Binary":
+        return bitnumarray2str(ip)
+    elif ff == "To_Utf-8_Binary":
+        return str2bitarray(ip)
+    elif ff == "To_upper":
+        return to_upper(ip)
+    elif ff == "To_lower":
+        return to_lower(ip)
+    elif ff == "To_capital":
+        return to_capital(ip)
+    elif ff == "To_title":
+        return to_title(ip)
+    elif ff == "Get_format_date":
+        return get_format_date(ip)
+    elif ff == "Date_to_stamp":
+        return date_to_stamp(ip)
+    elif ff == "Get_current_datestamp":
+        return get_current_datestamp()
+    elif ff == "Get_current_date":
+        return get_current_date()
+    
 
 
 
@@ -171,3 +194,70 @@ def index(request):
             context['output'] = ''
         print(context)
         return render(request, 'index.html', context)
+
+#字符串转二进制数
+def str2bitnumarray(s):
+    # ret = bitarray(''.join([bin(int('1' + hex(c)[2:], 16))[3:] for c in s.encode('utf-8')]))
+    # return ret
+    return ' '.join([bin(ord(c)).replace('0b', '') for c in s])
+#二进制数转字符串
+def bitnumarray2str(s):
+    return ''.join([chr(i) for i in [int(b, 2) for b in s.split(' ')]])
+
+
+#字符串转utf-8编码的二进制数据
+def str2bitarray(bit):
+
+    job_name = bit.encode('utf-8')
+    return job_name
+
+#utf-8二进制编码转字符串
+#例：b'\xe4\xbd\xa0\xe5\xa5\xbd' --》你好
+def bitarray2str(bitarray):
+    job_name = bytes(bitarray).decode("utf-8")
+    return job_name
+
+#字符串转大写
+def to_upper(str):
+    return str.upper()
+#字符串转小写
+def to_lower(str):
+    return str.lower()
+
+# 把第一个字母转化为大写字母，其余小写
+def to_capital(str):
+    return str.capitalize()
+
+#转化标题
+def to_title(str):
+    return str.title()
+
+#时间戳转化为标准时间格式
+def get_format_date(time_stamp):
+    #time_stamp= 1649755347
+    time_array = time.localtime(int(time_stamp))
+    checkpoint = time.strftime("%Y-%m-%d %H:%M:%S", time_array )
+    return checkpoint
+
+#字符串格式转化为时间戳
+def date_to_stamp(date_str):    #限定字符串格式，可以在文本框中进行提示
+    #转换成时间数组
+    timeArray = time.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+    #转换成时间戳
+    timestamp = time.mktime(timeArray)
+    return timestamp
+
+#获取当前时间时间戳
+def get_current_datestamp():
+    stamp =  int(time.mktime(time.localtime(time.time())))
+    return str(stamp)   #这里返回的是字符串类型的时间戳
+
+#获取当前字符串格式时间
+def get_current_date():
+    # 获取当前时间
+    time_now = int(time.time())
+    # 转换成localtime
+    time_local = time.localtime(time_now)
+    # 转换成新的时间格式(2016-05-09 18:59:20)
+    dt = time.strftime("%Y-%m-%d %H:%M:%S", time_local)
+    return dt
