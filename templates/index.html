@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="/static/js/main.js" language="javascript"></script>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		.main {
+			background-color: #dff0d8;
+			margin: 0 auto;
+			height: 100%;
+			width: 100%;
+
+		}
+
+		.main-left {
+			width: 30%;
+			height: 100%;
+			margin-right: 0px;
+			background-color: #fafafa;
+			float: left;
+			position: absolute;
+			left: 0;
+		}
+
+		.main-center {
+			width: 35%;
+			height: 100%;
+			float: left;
+			position: absolute;
+			left: 0;
+		}
+
+		.right-right {
+			width: 65%;
+			height: 100%;
+			float: right;
+			position: absolute;
+			right: 0;
+		}
+
+		.main-right {
+			width: 70%;
+			height: 100%;
+			background-color: #fafafa;
+			float: right;
+			position: absolute;
+			right: 0;
+		}
+	</style>
+	<link rel="stylesheet" href="/static/css/main.css" type="text/css" />
+</head>
+
+<body>
+	<div style="display: none" id="data" value="{{value}}"></div>
+	<h1 style="text-align:center;padding-right:150px;">Parse and Certificate</h1>
+	<div class="main">
+		<div class="main-left" style="overflow: scroll;overflow-x:hidden;">
+			<div class="title no-select">
+				Operations
+			</div>
+			<nav class="nav_1">
+				<ul class="Top-ul">
+					<li class="Top-li"><a href="">Favorites </a>
+						<ul>
+							<li class="Scd-li"><div class="fun" onclick='fun("To_Base64");'>To Base64 </div></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("From_Base64");'>From Base6 </div></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("To_MD5");'>To MD5 </div></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("To_URL");'>To URL </div></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("From_URL");'>From URL </div></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("To_SHA256");'>To SHA256 </div></li>
+						</ul>
+					</li>
+
+					<li class="Top-li"><a class="fun" href="">Data format </a>
+						<ul>
+							<li class="Scd-li"><div class="fun" onclick='fun("To_Binary");'>To Binary </a></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("From_Binary");'>From Binary </a></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("To_Utf-8_Binary");'>To Utf-8 </a></li>
+							
+						</ul>
+					</li>
+					<li class="Top-li"><a href="">Code tidy</a>
+						<ul>
+							<li class="Scd-li"><div class="fun" onclick='fun("Json");'>Json </a></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("JavaScript");'>JavaScript</a></li>
+						</ul>
+					</li>
+					<li class="Top-li"><a href="">Utils</a>
+						<ul>
+							<li class="Scd-li"><div class="fun" onclick='fun("To_upper");'>To Upper</a></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("To_lower");'>To Lower</a></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("To_capital");'>To Capital</a></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("To_title");'>To Title</a></li>
+						</ul>
+					</li>
+					<li class="Top-li"><a href="">Date & Time</a>
+						<ul>
+							<li class="Scd-li"><div class="fun" onclick='fun("Get_format_date");'>Timestamp To Date</a></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("Date_to_stamp");'>Date To Stamp</a></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("Get_current_datestamp");'>Get Current Datestamp</a></li>
+							<li class="Scd-li"><div class="fun" onclick='fun("Get_current_date");'>Get Current Date</a></li>
+							
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+
+		<div class="main-right">
+			<div class="main-center" style="border-width: 1px;
+		border-style: solid solid solid;margin-top:-1px;
+		border-color: #55AA77;border-radius:3px;">
+				<h2 style="text-align:left;  height:5.5%;background-color: #CCCCCC;border-width: 1px;
+				border-style: solid solid solid;
+				border-color: #55AA77;border-radius:3px;padding-left:5px;font-size: 18px;">Recipe</h2>
+				<div style="height:50%;border-bottom: 1px solid #000;">
+					<span class="bmd-form-group">
+						<textarea id="input-center-text" class="#input-center-text" onclick="setPostion()"
+							spellcheck="false" tabindex="1" style="overflow: auto;"
+							placeholder="Please input public key:">{{key}}</textarea>
+					</span>
+				</div>
+
+				<div style="margin-top:10px;">
+					<button type="button" id="btn-public-key" onclick="add_public_key();">
+						BAKE!
+					</button>
+					<div id="" class="mx-1 checkbox" style="float:right">
+						<label id="auto-bake-label">
+							<input type="checkbox" style="height:25px;width:25px" checked="checked" id="auto-bake">
+							<span class="checkbox-decorator">
+								<span class="check"></span>
+								<div class="ripple-container"></div>
+							</span><br>
+							Auto Bake</label>
+					</div>
+				</div>
+				<div style="margin-top:10px;border-top: 1px solid #000;">
+					<img style="max-width:100%;
+					max-height:100%;
+					width:auto;
+					height:auto; " src="/static/images/pic1.jpg"></img>
+				</div>
+
+
+
+			</div>
+			<div class="right-right">
+				<div class="input-div">
+					<h2 style="text-align:left;marin-left:12px;height:14%;background-color: #CCCCCC;border-width: 1px;
+				border-style: solid solid solid;
+				border-color: #55AA77;border-radius:3px;padding-left:5px;font-size: 18px;">Input</h2>
+					<div style="height:100%;">
+						<span class="bmd-form-group">
+							<textarea id="input-text" class="input-text" onclick="setPostion()" spellcheck="false"
+								tabindex="1" style="overflow: auto;padding: 10px;font-size: 20px;">{{input}}</textarea>
+						</span>
+					</div>
+
+				</div>
+
+				<div class="output-div">
+					<h2 style="text-align:left;marin-left:12px;height:9.75%;background-color: #CCCCCC;border-width: 1px;
+				border-style: solid solid solid;
+				border-color: #55AA77;border-radius:3px;padding-left:5px;font-size: 18px;">Output</h2>
+					<div style="marin-top:1px;height:100%;">
+						<span class="bmd-form-group">
+							<textarea id="output-text" class="output-text" spellcheck="false" tabindex="1" 
+								style="overflow: auto;padding: 10px;font-size: 20px;">{{output}}</textarea>
+						</span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
